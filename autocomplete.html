@@ -119,18 +119,8 @@
           index.add(i, movie.Name);
           i = i + 1;
         }
-      })
-      .catch((error) => {
-        const p = document.createElement("p");
-        p.appendChild(document.createTextNode(`Error: ${error.message}`));
-        document.body.insertBefore(p, myList);
-      });
 
-// {
-//         for(var i = 0; i < jsonresponse.length; i++){
-//             index.add(i, jsonresponse[i]);
-//         }
-
+//suggest
          var suggestions = document.getElementById("suggestions");
          var autocomplete = document.getElementById("autocomplete");
          var userinput = document.getElementById("userinput");
@@ -180,6 +170,21 @@
              }
              return false;
          }
+//END OF suggest
+
+      })
+      .catch((error) => {
+        const p = document.createElement("p");
+        p.appendChild(document.createTextNode(`Error: ${error.message}`));
+        document.body.insertBefore(p, myList);
+      });
+
+// {
+//         for(var i = 0; i < jsonresponse.length; i++){
+//             index.add(i, jsonresponse[i]);
+//         }
+
+
 // }
 
 
