@@ -115,7 +115,7 @@
           i = i + 1;
         }
 
-        const data_list = data.movies;
+        const movies_list = data.movies.map(movie => (movie.Name));
 
 //suggest
          var suggestions = document.getElementById("suggestions");
@@ -137,12 +137,12 @@
                      entry = document.createElement("div");
                      suggestions.appendChild(entry);
                  }
-                 entry.textContent = data_list[results[i]];
+                 entry.textContent = movies_list[results[i]];
              }
              while(childs.length > len){
                  suggestions.removeChild(childs[i])
              }
-             var first_result = data_list[results[0]];
+             var first_result = movies_list[results[0]];
              var match = first_result && first_result.toLowerCase().indexOf(value.toLowerCase());
              if(first_result && (match !== -1)){
                  autocomplete.value = value + first_result.substring(match + value.length);
