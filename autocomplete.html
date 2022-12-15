@@ -100,7 +100,7 @@
         return response.json();
       })
       .then((data) => {
-        let i = 1;
+        const i = 1;
         for (const movie of data.movies) {
           const listItem = document.createElement("li");
 
