@@ -73,7 +73,7 @@
 </table>
 <div id="suggestions"></div>
 <ul></ul>
-<script type="module">
+<script>
 
     //import data from "./data/movies.js";
 
@@ -100,9 +100,10 @@
         return response.json();
       })
       .then((data) => {
+        let i = 1;
         for (const movie of data.movies) {
           const listItem = document.createElement("li");
-          
+
           const nameElement = document.createElement("strong");
           nameElement.textContent = movie.Name;
           
@@ -110,12 +111,13 @@
           // priceElement.textContent = `£${movie.Price}`;
 
           listItem.append(
-            nameElement,
+            nameElement
             // ` can be found in ${movie.Location}. Cost: `,
             // priceElement,
           );
           myList.appendChild(listItem);
           index.add(i, movie.Name);
+          i = i + 1;
         }
       })
       .catch((error) => {
