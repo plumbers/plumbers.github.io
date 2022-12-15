@@ -86,7 +86,7 @@
 
     const myList = document.querySelector("ul");
 
-    fetch("./data/movies_small.json")
+    fetch("./data/movies.json")
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error, status = ${response.status}`);
@@ -110,7 +110,7 @@
             // ` can be found in ${movie.Location}. Cost: `,
             // priceElement,
           );
-          myList.appendChild(listItem);
+//          myList.appendChild(listItem);
           index.add(i, movie.Name);
           i = i + 1;
         }
