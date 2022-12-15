@@ -100,7 +100,7 @@
         return response.json();
       })
       .then((data) => {
-        const i = 1;
+        var i = 1;
         for (const movie of data.movies) {
           const listItem = document.createElement("li");
 
@@ -125,8 +125,6 @@
         p.appendChild(document.createTextNode(`Error: ${error.message}`));
         document.body.insertBefore(p, myList);
       });
-
-
 
 // {
 //         for(var i = 0; i < jsonresponse.length; i++){
