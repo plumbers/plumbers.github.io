@@ -100,22 +100,22 @@
         return response.json();
       })
       .then((data) => {
-        for (const product of data.products) {
+        for (const movie of data.movies) {
           const listItem = document.createElement("li");
           
           const nameElement = document.createElement("strong");
-          nameElement.textContent = product.Name;
+          nameElement.textContent = movie.Name;
           
           // const priceElement = document.createElement("strong");
-          // priceElement.textContent = `£${product.Price}`;
+          // priceElement.textContent = `£${movie.Price}`;
 
           listItem.append(
             nameElement,
-            // ` can be found in ${product.Location}. Cost: `,
+            // ` can be found in ${movie.Location}. Cost: `,
             // priceElement,
           );
           myList.appendChild(listItem);
-          index.add(i, product.Name);
+          index.add(i, movie.Name);
         }
       })
       .catch((error) => {
