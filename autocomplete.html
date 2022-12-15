@@ -75,12 +75,6 @@
 <ul></ul>
 <script>
 
-    //import data from "./data/movies.js";
-
-// import data from './data/movies.js' assert { type: 'JavaScript' };
-// console.log(data);
-
-
 (function(){
 
         const index = new FlexSearch.Index({
@@ -121,7 +115,7 @@
           i = i + 1;
         }
 
-        const data = data.movies;
+        const data_list = data.movies;
 
 //suggest
          var suggestions = document.getElementById("suggestions");
@@ -143,12 +137,12 @@
                      entry = document.createElement("div");
                      suggestions.appendChild(entry);
                  }
-                 entry.textContent = data[results[i]];
+                 entry.textContent = data_list[results[i]];
              }
              while(childs.length > len){
                  suggestions.removeChild(childs[i])
              }
-             var first_result = data[results[0]];
+             var first_result = data_list[results[0]];
              var match = first_result && first_result.toLowerCase().indexOf(value.toLowerCase());
              if(first_result && (match !== -1)){
                  autocomplete.value = value + first_result.substring(match + value.length);
