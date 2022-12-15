@@ -115,10 +115,12 @@
             // ` can be found in ${movie.Location}. Cost: `,
             // priceElement,
           );
-          myList.appendChild(listItem);
+//          myList.appendChild(listItem);
           index.add(i, movie.Name);
           i = i + 1;
         }
+
+        const data = data.movies.map(movie => (movie.Name));
 
 //suggest
          var suggestions = document.getElementById("suggestions");
