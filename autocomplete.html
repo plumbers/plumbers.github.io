@@ -100,6 +100,7 @@
         return response.json();
       })
       .then((data) => {
+
         var i = 1;
         for (const movie of data.movies) {
           const listItem = document.createElement("li");
@@ -115,12 +116,12 @@
             // ` can be found in ${movie.Location}. Cost: `,
             // priceElement,
           );
-//          myList.appendChild(listItem);
+          myList.appendChild(listItem);
           index.add(i, movie.Name);
           i = i + 1;
         }
 
-        const data = data.movies.map(movie => (movie.Name));
+        const data = data.movies;
 
 //suggest
          var suggestions = document.getElementById("suggestions");
