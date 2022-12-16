@@ -76,50 +76,7 @@
 <ul></ul>
 <script>
 
-var lzwCompress = window.lzwCompress;
-json_path = "data/movies.json";
-
-function compress() {
-    xttp = new XMLHttpRequest();
-    xttp.open("GET", json_path);
-    xttp.send();
-    xttp.onreadystatechange= function() {
-        if(this.readyState == 4 && this.status == 200){
-            var data = JSON.parse(this.responseText);
-            var compressed = lzwCompress.pack(data);
-            var compressed = JSON.stringify(compressed)
-            download(compressed, 'movies_compressed.json', 'utf8');
-        }
-    }
-}
-
-function decompress() {
-    xttp = new XMLHttpRequest();
-    xttp.open("GET", "data/movies_compressed.json");
-    xttp.send();
-    xttp.onreadystatechange= function() {
-        if(this.readyState == 4 && this.status == 200){
-            var data = JSON.parse(this.responseText);
-            var original = lzwCompress.unpack(data);
-            console.log(original);
-        }
-    }
-}
-
-function download(content, fileName, contentType) {
-    var a = document.createElement("a");
-    var file = new Blob([content], {type: contentType});
-    a.href = URL.createObjectURL(file);
-    a.download = fileName;
-    a.click();
-}
-
-//compress();
-//decompress();
-
 (function(){
-
-//compress();
 
         const index = new FlexSearch.Index({
 //            charset: "latin:advanced",
@@ -211,6 +168,7 @@ function download(content, fileName, contentType) {
              }
              return false;
          }
+
 //END OF suggest
 
       })
@@ -219,14 +177,6 @@ function download(content, fileName, contentType) {
         p.appendChild(document.createTextNode(`Error: ${error.message}`));
         document.body.insertBefore(p, myList);
       });
-
-// {
-//         for(var i = 0; i < jsonresponse.length; i++){
-//             index.add(i, jsonresponse[i]);
-//         }
-
-
-// }
 
 
     }());
