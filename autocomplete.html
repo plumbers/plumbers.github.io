@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1, maximum-scale=1.0, user-scalable=no">
     <title>Demo: Auto-Complete</title>
     <script src="dist/flexsearch.bundle.js"></script>
+    <script src="js/lzwCompress.js"></script>
     <style>
         body{
             padding:0;
@@ -75,7 +76,50 @@
 <ul></ul>
 <script>
 
+var lzwCompress = window.lzwCompress;
+json_path = "data/movies.json";
+
+function compress() {
+    xttp = new XMLHttpRequest();
+    xttp.open("GET", json_path);
+    xttp.send();
+    xttp.onreadystatechange= function() {
+        if(this.readyState == 4 && this.status == 200){
+            var data = JSON.parse(this.responseText);
+            var compressed = lzwCompress.pack(data);
+            var compressed = JSON.stringify(compressed)
+            download(compressed, 'movies_compressed.json', 'utf8');
+        }
+    }
+}
+
+function decompress() {
+    xttp = new XMLHttpRequest();
+    xttp.open("GET", "data/movies_compressed.json");
+    xttp.send();
+    xttp.onreadystatechange= function() {
+        if(this.readyState == 4 && this.status == 200){
+            var data = JSON.parse(this.responseText);
+            var original = lzwCompress.unpack(data);
+            console.log(original);
+        }
+    }
+}
+
+function download(content, fileName, contentType) {
+    var a = document.createElement("a");
+    var file = new Blob([content], {type: contentType});
+    a.href = URL.createObjectURL(file);
+    a.download = fileName;
+    a.click();
+}
+
+//compress();
+//decompress();
+
 (function(){
+
+//compress();
 
         const index = new FlexSearch.Index({
 //            charset: "latin:advanced",
