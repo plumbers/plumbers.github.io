@@ -1,0 +1,219 @@
+# Project information
+site_name: АУМ
+site_url: https://plumbers.github.io
+site_author: AUM
+site_description: >-
+  АУМ
+
+# Repository
+#repo_name: squidfunk/mkdocs-material
+#repo_url: https://github.com/squidfunk/mkdocs-material
+
+# Copyright
+copyright: Copyleft &copy;
+
+# Configuration
+theme:
+  name: material
+  custom_dir: overrides
+#  custom_dir: material/.overrides
+  features:
+    # - announce.dismiss
+#    - content.action.edit
+#    - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    # - content.tabs.link
+    - content.tooltips
+    # - header.autohide
+    # - navigation.expand
+#    - navigation.footer
+    - navigation.indexes
+    # - navigation.instant
+    # - navigation.prune
+    - navigation.sections
+    - navigation.tabs
+    # - navigation.tabs.sticky
+    - navigation.top
+#    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+    # - toc.integrate
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  favicon: assets/favicon.png
+  icon:
+    logo: logo
+    tag:
+      default: octicons/tag-24
+
+
+extra_javascript:
+#  - javascripts/require.js
+#  - javascripts/extra.js
+
+# Plugins
+plugins:
+  - search:
+      lang: ru
+      separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  - minify:
+      minify_html: true
+#  - autolinks
+#  - ezlinks
+#  - autorefs
+#  - autolink_references:
+#      autolinks:
+#        - reference_prefix: AF-
+#          target_url: https://linear.com/AF-<num>
+#        - reference_prefix: PROJ-
+#          target_url: https://jiracloud.com/PROJ-<num>
+#  - categories
+  - tags:
+      enabled: true
+      tags_file: tags.md
+      tags_slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+#      tags_template: docs/tags.md.template
+#  - paginate:
+#      max_items: 1
+#  - custom-attributes:
+#      file: assets/css/custom_attributes.css
+
+
+# Customization
+extra:
+#  analytics:
+#    provider: google
+#    property: !ENV GOOGLE_ANALYTICS_KEY
+#  social:
+#    - icon: fontawesome/brands/github
+#      link: https://github.com/squidfunk
+#    - icon: fontawesome/brands/gitter
+#      link: https://gitter.im/squidfunk/mkdocs-material
+#    - icon: fontawesome/brands/docker
+#      link: https://hub.docker.com/r/squidfunk/mkdocs-material/
+#    - icon: fontawesome/brands/python
+#      link: https://pypi.org/project/mkdocs-material/
+#    - icon: fontawesome/brands/twitter
+#      link: https://twitter.com/squidfunk
+
+# Extensions
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+#  - pymdownx.emoji:
+#      emoji_generator: !!python/name:materialx.emoji.to_svg
+#      emoji_index: !!python/name:materialx.emoji.twemoji
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+#  - pymdownx.magiclink:
+#      repo_url_shorthand: true
+#      user: squidfunk
+#      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# Page tree
+nav:
+  - Home: index.md
+#  - Reference:
+#    - reference/index.md
+#    - Admonitions: reference/admonitions.md
+#    - Annotations: reference/annotations.md
+#    - Buttons: reference/buttons.md
+#    - Code blocks: reference/code-blocks.md
+#    - Content tabs: reference/content-tabs.md
+#    - Data tables: reference/data-tables.md
+#    - Diagrams: reference/diagrams.md
+#    - Footnotes: reference/footnotes.md
+#    - Formatting: reference/formatting.md
+#    - Grids: reference/grids.md
+#    - Icons, Emojis: reference/icons-emojis.md
+#    - Images: reference/images.md
+#    - Lists: reference/lists.md
+#    - MathJax: reference/mathjax.md
+#    - Tooltips: reference/tooltips.md
+#  - Insiders:
+#    - insiders/index.md
+#    - Getting started:
+#      - Installation: insiders/getting-started.md
+#      - Changelog: insiders/changelog.md
+  - Агни-Йога:
+    - agni/index.md
+    - agni/1924/index.md
+    - agni/1925/index.md
+    - agni/1926/index.md
+    - agni/1929/index.md
+    - agni/1930/index.md
+    - agni/1931/index.md
+    - agni/1932/index.md
+    - agni/1933/index.md
+    - agni/1934/index.md
+    - agni/1935/index.md
+    - agni/1936/index.md
+    - agni/1937/index.md
+    - agni/1938/index.md
+  - Грани Агни-Йоги:
+    - grani_agni/index.md
+    - grani_agni/1951/index.md
+    - grani_agni/1952/index.md
+    - grani_agni/1953/index.md
+    - grani_agni/1954/index.md
+    - grani_agni/1955/index.md
+    - grani_agni/1956/index.md
+    - grani_agni/1957/index.md
+    - grani_agni/1958/index.md
+    - grani_agni/1959/index.md
+    - grani_agni/1960/index.md
+    - grani_agni/1961/index.md
+    - grani_agni/1963/index.md
+    - grani_agni/1965/index.md
+    - grani_agni/1966/index.md
+    - grani_agni/1967/index.md
+    - grani_agni/1968/index.md
+    - grani_agni/1969/index.md
+    - grani_agni/1970/index.md
+    - grani_agni/1971/index.md
+    - grani_agni/1972/index.md
