@@ -1,4 +1,6 @@
----
-tags:
----
++++
+title="tags"
+taxonomies.tags = [
+]
++++
 []

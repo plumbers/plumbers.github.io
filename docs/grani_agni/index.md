@@ -1,6 +1,8 @@
----
-tags:
----
++++
+title="index"
+taxonomies.tags = [
+]
++++
 [Грани Агни Йоги 1951](/grani_agni/1951/)
 
 [Грани Агни Йоги 1952](/grani_agni/1952/)
