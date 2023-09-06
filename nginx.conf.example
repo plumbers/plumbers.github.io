@@ -1,0 +1,70 @@
+# /etc/nginx/sites-enabled/patolino.conf
+# patolino (fake name)
+
+upstream patolino_puma {
+    # did you create the deploy user?
+    server unix:///home/deploy/apps/patolino/shared/tmp/sockets/puma.sock fail_timeout=0;
+}
+
+server {
+    listen 80;
+    server_name patolino.com www.patolino.com;
+
+    root /home/deploy/apps/patolino/current/public/;
+
+    location / {
+      try_files $uri $uri/index.html $uri.html @app;
+    }
+
+    # For nginx status
+    location /basic_status {
+      stub_status;
+    }
+
+    # Cache
+    location ~* \.(?:jpg|jpeg|gif|png|ico|xml)$ {
+      access_log    off;
+      log_not_found off;
+      expires       30m;
+      add_header    Cache-Control "public";
+    }
+
+    location ~* \.(?:css|js)$ {
+      access_log    off;
+      log_not_found off;
+      add_header    Cache-Control "no-cache, public, must-revalidate, proxy-revalidate";
+    }
+
+    location ~* \.(eot|otf|ttf|woff|woff2|svg|oft)$ {
+      access_log    off;
+      log_not_found off;
+      add_header    Access-Control-Allow-Origin *;
+      add_header    Cache-Control "public";
+      expires       5m;
+    }
+
+    # Do you use SidekiqUI? (config below prevents some errors)
+    # proxy_set_header Host            $host;
+    # proxy_set_header X-Real-IP       $remote_addr;
+    # proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    # proxy_set_header Host            $http_host;
+
+    # Application
+    location @app {
+      # must match the name of upstream directive which is defined above
+      proxy_buffers     8 24k;
+      proxy_buffer_size 2k;
+      proxy_pass        http://patolino_puma;
+      proxy_redirect    off;
+      proxy_set_header  X-Forwarded-For $remote_addr;
+      proxy_set_header  Host $http_host;
+      # below line is only required for HTTPS
+      # proxy_set_header   X-Forwarded-Proto https;
+    }
+
+    # deny access to .htaccess files, if Apache's document root
+    # concurs with nginx's one
+    location ~ /\.ht {
+      deny all;
+    }
+}

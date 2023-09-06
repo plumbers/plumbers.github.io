@@ -1,0 +1,33 @@
+version: "3"
+
+services:
+  mkdocs:
+    image: squidfunk/mkdocs-material
+    container_name: mkdocs
+#    restart: always
+    volumes:
+      - ./docs:/docs
+#    environment:
+#      # Swapping needs to be disabled for performance and node stability
+#      - "bootstrap.memory_lock=true"
+#      - OPENSEARCH_JAVA_OPTS=-Xms${ES_JVM_SIZE} -Xmx${ES_JVM_SIZE}
+#      - "DISABLE_INSTALL_DEMO_CONFIG=true"
+#      - "DISABLE_SECURITY_PLUGIN=true"
+#    volumes:
+##      - /home/ubuntu/snowplow/elasticsearch/data:/usr/share/opensearch/data
+#      - ./.docker/config/elasticsearch.yml:/usr/share/opensearch/config/opensearch.yml
+#      - ./.docker/config/log4j2.properties:/usr/share/opensearch/config/log4j2.properties
+#    ulimits:
+#      memlock:
+#        soft: -1
+#        hard: -1
+#      nofile:
+#        soft: 65536
+#        hard: 65536
+#    logging:
+#      options:
+#        max-size: "50M"
+#        max-file: "10"
+#    ports:
+#      - "9200:9200"
+#      - "9300:9300"

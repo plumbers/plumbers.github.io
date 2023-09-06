@@ -1,19 +1,23 @@
 # Project information
 site_name: АУМ
-site_url: https://plumbers.github.io
+#site_url: https://plumbers.github.io
+site_url: https://127.0.0.1:4002
 site_author: AUM
 site_description: >-
   АУМ
+
+dev_addr: 127.0.0.1:8008
 
 # Repository
 #repo_name: squidfunk/mkdocs-material
 #repo_url: https://github.com/squidfunk/mkdocs-material
 
 # Copyright
-copyright: Copyleft &copy;
+# copyright: Copyleft &copy;
 
 # Configuration
 theme:
+  language: ru
   name: material
   custom_dir: overrides
 #  custom_dir: material/.overrides
@@ -26,12 +30,13 @@ theme:
     # - content.tabs.link
     - content.tooltips
     # - header.autohide
-    # - navigation.expand
-#    - navigation.footer
+#    - navigation.expand
+    - navigation.header
+    - navigation.footer
     - navigation.indexes
-    # - navigation.instant
+    - navigation.instant
     # - navigation.prune
-    - navigation.sections
+#    - navigation.sections
     - navigation.tabs
     # - navigation.tabs.sticky
     - navigation.top
@@ -64,17 +69,30 @@ theme:
       default: octicons/tag-24
 
 
-extra_javascript:
+#extra_javascript:
 #  - javascripts/require.js
 #  - javascripts/extra.js
 
 # Plugins
 plugins:
   - search:
-      lang: ru
+      lang:
+#        - en
+        - ru
       separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
   - minify:
       minify_html: true
+  - tags:
+      enabled: true
+      tags_file: tags.md
+      tags_slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+      tags_template: docs/tags.md.template
+#      tags_allowed:
+#        - HTML5
+#        - JavaScript
+#        - CSS
 #  - autolinks
 #  - ezlinks
 #  - autorefs
@@ -85,24 +103,25 @@ plugins:
 #        - reference_prefix: PROJ-
 #          target_url: https://jiracloud.com/PROJ-<num>
 #  - categories
-  - tags:
-      enabled: true
-      tags_file: tags.md
-      tags_slugify: !!python/object/apply:pymdownx.slugs.slugify
-        kwds:
-          case: lower
-#      tags_template: docs/tags.md.template
 #  - paginate:
 #      max_items: 1
 #  - custom-attributes:
 #      file: assets/css/custom_attributes.css
-
+#  - include_dir_to_nav:
+#      file_pattern: '.*\.md$'
+  - awesome-pages:
+      filename: .index
+      collapse_single_pages: true
+      strict: false
+      order: asc
+      sort_type: natural
+      order_by: title
 
 # Customization
 extra:
-#  analytics:
-#    provider: google
-#    property: !ENV GOOGLE_ANALYTICS_KEY
+  analytics:
+    provider: google
+    property: !ENV GOOGLE_ANALYTICS_KEY
 #  social:
 #    - icon: fontawesome/brands/github
 #      link: https://github.com/squidfunk
@@ -157,7 +176,7 @@ markdown_extensions:
 
 # Page tree
 nav:
-  - Home: index.md
+  - АУМ: index.md
 #  - Reference:
 #    - reference/index.md
 #    - Admonitions: reference/admonitions.md
@@ -165,16 +184,6 @@ nav:
 #    - Buttons: reference/buttons.md
 #    - Code blocks: reference/code-blocks.md
 #    - Content tabs: reference/content-tabs.md
-#    - Data tables: reference/data-tables.md
-#    - Diagrams: reference/diagrams.md
-#    - Footnotes: reference/footnotes.md
-#    - Formatting: reference/formatting.md
-#    - Grids: reference/grids.md
-#    - Icons, Emojis: reference/icons-emojis.md
-#    - Images: reference/images.md
-#    - Lists: reference/lists.md
-#    - MathJax: reference/mathjax.md
-#    - Tooltips: reference/tooltips.md
 #  - Insiders:
 #    - insiders/index.md
 #    - Getting started:
@@ -182,38 +191,7 @@ nav:
 #      - Changelog: insiders/changelog.md
   - Агни-Йога:
     - agni/index.md
-    - agni/1924/index.md
-    - agni/1925/index.md
-    - agni/1926/index.md
-    - agni/1929/index.md
-    - agni/1930/index.md
-    - agni/1931/index.md
-    - agni/1932/index.md
-    - agni/1933/index.md
-    - agni/1934/index.md
-    - agni/1935/index.md
-    - agni/1936/index.md
-    - agni/1937/index.md
-    - agni/1938/index.md
+    - '... | regex=\bagni\b.*[0-9]{3}.md'
   - Грани Агни-Йоги:
     - grani_agni/index.md
-    - grani_agni/1951/index.md
-    - grani_agni/1952/index.md
-    - grani_agni/1953/index.md
-    - grani_agni/1954/index.md
-    - grani_agni/1955/index.md
-    - grani_agni/1956/index.md
-    - grani_agni/1957/index.md
-    - grani_agni/1958/index.md
-    - grani_agni/1959/index.md
-    - grani_agni/1960/index.md
-    - grani_agni/1961/index.md
-    - grani_agni/1963/index.md
-    - grani_agni/1965/index.md
-    - grani_agni/1966/index.md
-    - grani_agni/1967/index.md
-    - grani_agni/1968/index.md
-    - grani_agni/1969/index.md
-    - grani_agni/1970/index.md
-    - grani_agni/1971/index.md
-    - grani_agni/1972/index.md
+    - '... | regex=\bgrani_agni\b.*[0-9]{3}.md'
