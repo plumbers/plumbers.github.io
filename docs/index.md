@@ -1,6 +1,0 @@
-+++
-title="index"
-taxonomies.tags = [
-]
-+++
-["* [Агни-Йога](/agni)\n", "* [Грани Агни-Йоги](/grani_agni)"]
