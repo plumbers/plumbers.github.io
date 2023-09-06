@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: plumbers.github.io/sitemap.xml
+Sitemap: https://plumbers.github.io/sitemap.xml
